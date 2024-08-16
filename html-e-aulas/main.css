@@ -1,0 +1,42 @@
+body {
+    background-image: url('imagens/walp.jpg');
+    background-size: cover;
+}
+
+.curriculo {
+    position: relative; 
+    left: 10%;
+    top: 60px;
+    border: 3px black groove;
+    width: 80%;
+    height: 1700px;
+    text-align: center;
+    background-color: cornsilk;
+    opacity: 0.8;
+}
+
+.title {
+    font-size: 70px;
+}
+
+.subtitle {
+    font-size: 25px;
+}
+
+.separador {
+    font-size: 30px;
+    position: relative;
+    top: -2%;
+}
+
+.text {
+    font-size: 23px;
+}
+
+.img {
+    border: 2px gray groove;
+}
+
+.video {
+    position: absolute;
+}
