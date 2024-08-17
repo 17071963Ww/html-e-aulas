@@ -1,0 +1,20 @@
+table, th, td {
+    border: 1px solid black;
+    padding: 1px;
+  }
+
+th {
+    padding: 2px;
+}  
+
+.um {
+    background-color: aqua;
+}
+
+.dois {
+    background-color: burlywood;
+}
+
+.tres {
+    background-color: darksalmon;
+}
