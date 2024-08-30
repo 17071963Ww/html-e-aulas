@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    background-image: url('https://miro.medium.com/v2/resize:fit:2000/1*c4eaWtGNRJvpmn9atyclqA.jpeg');
+    background-repeat: no-repeat;
+}
+
+.pai {
+    display: flex;
+}
+
+.Lado {
+    width: 50%;
+    height: 550px;
+    background-color: rgb(0,0,0,0.3);
+    min-width: 400px;
+    border-radius: 5px;
+    margin: 0.3%;
+}
+
+.aviso {
+    text-align: center;
+    border: 5px black grove;
+    background-color: crimson;
+}
+
+.aviso p {
+    font-size: 20px;
+    color: whitesmoke;
+    margin: 4px;
+}
+
+.FormCalc {
+    display: flex;
+    justify-content: center;
+    min-width: 350px;
+}
+
+.CalcBody {
+    background-color: gray;
+    height: 400px;
+    width: 330px;
+    border-radius: 5px;
+}
+
+.CalcMonitor {
+    background-color: rgb(145, 145, 145);
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    padding-bottom: 30px;
+}
+
+.buttons button {
+   width: 70px;
+   height: 70px;
+   size: 30px;
+   font-size: 40px;
+   margin: 3px;
+   transition: background-color 0.3s;
+   border: none;
+   border-radius: 2px;
+}
+
+.buttons button:hover {
+    background-color: rgb(212, 212, 212);
+}
+
+.buttons button:active {
+    transform: scale(0.95);
+}
+
+.button-active-function {
+    transform: scale(0.95);
+    background-color: rgb(212, 212, 212);
+}
+
+#monitor {  
+    width: 98%;
+    opacity: 0.7;
+    font-size: 30px;
+}
+
+#numeral {
+    width: 240px;
+    display: inline-block;
+}
+
+#function {
+    width: 80px;
+    float: right;
+}
+
+#box-limpar {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#Limpar {
+   width: 190px;
+   height: 40px;
+   margin-top: 10px;
+   font-size: 25px;
+   position: relative;
+   right: 5%;
+}
+
+#deletar {
+    width: 70px;
+    height: 40px;
+    background-image: url('img/delete.png');
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 8%;
+}
+
+.tabela {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    min-width: 350px;
+}
+
+table, th, td {
+    background-color: burlywood;
+    border: 1px solid black;
+    padding: 1px;
+    width: 800px;
+    height: 45px;
+    border-radius: 3px;
+  }
+
+th {
+    padding: 2px;
+}  
+
+.um {
+    background-color: aqua;
+}
+
+.dois {
+    background-color: burlywood;
+}
+
+.tres {
+    background-color: darksalmon;
+}
