@@ -117,33 +117,51 @@ body {
 }
 
 .tabela {
-    padding: 5px;
+    padding: 3px;
     display: flex;
     justify-content: center;
     min-width: 350px;
+}
+
+table {
+    background: linear-gradient(to right, rgb(177, 137, 85) 69.6%, #ffffff 30.3%);
 }
 
 table, th, td {
     background-color: burlywood;
     border: 1px solid black;
     padding: 1px;
-    width: 800px;
+    width: 920px;
     height: 45px;
     border-radius: 3px;
+    text-align: center;
   }
+ 
 
 th {
     padding: 2px;
-}  
-
-.um {
-    background-color: aqua;
 }
 
-.dois {
+tr input[type='text'] {
+    width: 70px;
+    font-size: 13px;
+    border: none;
     background-color: burlywood;
 }
 
-.tres {
-    background-color: darksalmon;
+tr input[type='number'] {
+    width: 30px;
+    font-size: 22px;
+    border: none;
+    background-color: burlywood;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#bt {
+    width: 105px;
+    font-size: 15px;
 }

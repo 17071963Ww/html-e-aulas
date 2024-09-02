@@ -203,7 +203,7 @@ document.addEventListener('keydown', function(event) {
         simulaClick('Div')
     }
     if (event.code === 'NumpadDecimal') {
-        Virgula()
+        virgula()
         simulaClick('Virgula')
     }
     if (event.code === 'Backspace') {
@@ -217,4 +217,50 @@ document.addEventListener('keydown', function(event) {
   });
 
 ///////////////{              TABELA             }//////////////////////// 
+function calculamedia(num1,num2,num3) {
+    let media = (num1 + num2 + num3) / 3;
+    return media
+}
 
+function gerarmedia() {
+    let arr = [];
+    let naopreenchido = false;
+    let linha = 0;
+
+    for (let yindex = 1; yindex < 7; yindex++) {
+
+        for (let index = 1; index < 10; index++) {
+            val = parseFloat(document.getElementById(`r${yindex}_l${index}`).value);
+
+            arr[index - 1] = parseFloat(document.getElementById(`r${yindex}_l${index}`).value); 
+            
+            if (isNaN(arr[index - 1]) || arr[index -1] >=10 ) {
+                naopreenchido = true;
+                linha = yindex;
+                break; 
+            }
+
+            media1 = document.getElementById((`r${yindex}_m1`));
+            media2 = document.getElementById((`r${yindex}_m2`));
+            media3 = document.getElementById((`r${yindex}_m3`));
+            mediaf = document.getElementById((`r${yindex}_mf`));
+
+            med1 = calculamedia(arr[0],arr[1],arr[2]);
+            med2 = calculamedia(arr[3],arr[4],arr[5]);
+            med3 = calculamedia(arr[6],arr[7],arr[8]);
+
+            media1.value = med1;
+            media2.value = med2;
+            media3.value = med3;
+           
+            mediaf.value = (calculamedia(med1,med2,med3));
+        }
+        
+    if (naopreenchido == true) {
+        aluno = document.getElementById(`name${yindex}`).value;
+        alert('Aluno ' + aluno + ' | Linha: '+ linha + ', não foi preenchida ou contém numero invalido');
+        break;
+    }
+    }
+
+}
