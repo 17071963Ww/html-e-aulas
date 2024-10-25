@@ -1,0 +1,105 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.walp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/hosp.jpg'); 
+    background-size: cover;
+    filter: blur(5px); 
+    z-index: -1;
+}
+
+.main {
+    height: 940px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-box {
+    background-color: rgb(255, 255, 255,0.8);
+    width: 86%;
+    height: 600px;
+    padding: 3%;
+    border-radius: 20px;
+}
+
+.question-box-text {
+    opacity: 1;
+    text-align: center;
+    font-size: 53px;
+    color: #010d27;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.Buttons {
+    display: flex;
+    justify-content: space-between; 
+    padding-top: 30px;
+}
+
+.Buttons button {
+    font-size: x-large;
+    width: 85px;
+    height: 95px;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+#bt1 {
+    background-color: #ff0000;
+}
+
+#bt2 {
+    background-color: orangered;
+}
+
+#bt3 {
+    background-color: rgb(255, 102, 0);
+}
+
+#bt4 {
+    background-color: darkorange;
+}
+
+#bt5 {
+    background-color: orange;
+}
+
+#bt6 {
+    background-color: #fff000;
+}
+
+#bt7 {
+    background-color: rgb(200, 255, 1);
+}
+
+#bt8 {
+    background-color: greenyellow;
+    
+}
+
+#bt9 {
+    background-color: yellowgreen;
+}
+
+#bt10 {
+    background-color: #008000;
+}
+
+footer {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    text-align: center;
+    font-size: 30px;
+}
