@@ -6,29 +6,34 @@
     <title>Pagina avaliação</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-    <script src='main.js'></script>
+    <script src='js/main.js'></script>
 </head>
 <body>
     <div class="walp"></div>
     <div class="main">
         <div class="question-box">
             <div class="question-box-text">
-                <p>Com base na sua experiencia em nossa instituiçao, em uma escala de 0 (MUITO INSASTIFEITO) A 10 (COMPLETAMENTE SASTIFEITO),
+                <p>
+                    Com base na sua experiencia em nossa instituiçao, em uma escala de 0 (MUITO INSASTIFEITO) A 10 (COMPLETAMENTE SASTIFEITO),
                     O quão provavel voce recomendaria nossos serviços a um amigo e/ou familiar?
                 </p>
             </div>
 
+            <!--<div class="TextArea">
+                <textarea maxlength="210"></textarea>
+            </div>-->
+
             <div class="Buttons">
-                <button id="bt1">1</button>
-                <button id="bt2">2</button>
-                <button id="bt3">3</button>
-                <button id="bt4">4</button>
-                <button id="bt5">5</button>
-                <button id="bt6">6</button>
-                <button id="bt7">7</button>
-                <button id="bt8">8</button>
-                <button id="bt9">9</button>
-                <button id="bt10">10</button>
+                <button id="bt1" onclick="GetButtonValue('bt1')" value="1">1</button>
+                <button id="bt2" onclick="GetButtonValue('bt2')" value="2">2</button>
+                <button id="bt3" onclick="GetButtonValue('bt3')" value="3">3</button>
+                <button id="bt4" onclick="GetButtonValue('bt4')" value="4">4</button>
+                <button id="bt5" onclick="GetButtonValue('bt5')" value="5">5</button>
+                <button id="bt6" onclick="GetButtonValue('bt6')" value="6">6</button>
+                <button id="bt7" onclick="GetButtonValue('bt7')" value="7">7</button>
+                <button id="bt8" onclick="GetButtonValue('bt8')" value="8">8</button>
+                <button id="bt9" onclick="GetButtonValue('bt9')" value="9">9</button>
+                <button id="bt10" onclick="GetButtonValue('bt10')" value="10">10</button>
             </div>
             
         </div>

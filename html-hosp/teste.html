@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 600px; /* Limita a largura do carrossel */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease; /* Suaviza a transição */
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            height: 200px;
+            font-size: 1.5em;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 0 5px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">Item 1</div>
+            <div class="carousel-item">Item 2</div>
+            <div class="carousel-item">Item 3</div>
+            <div class="carousel-item">Item 4</div>
+        </div>
+    </div>
+
+    <div class="carousel-controls">
+        <button id="prevBtn">Anterior</button>
+        <button id="nextBtn">Próximo</button>
+    </div>
+
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const itemWidth = carousel.clientWidth;
+            carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            const totalItems = document.querySelectorAll('.carousel-item').length;
+            if (currentIndex < totalItems - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+    </script>
+
+</body>
+</html>
