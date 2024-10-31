@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Página de Avaliação</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f4f4f9;
+        }
+
+        .walp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/hosp.jpg'); 
+            background-size: cover;
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        .main {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .main.out {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .Buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .Buttons button {
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .Buttons button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+    <script>
+        const questions = [
+            "Com base na sua experiência em nossa instituição, em uma escala de 0 (MUITO INSATISFEITO) a 10 (COMPLETAMENTE SATISFEITO), o quão provável você recomendaria nossos serviços a um amigo e/ou familiar?",
+            "Como você avalia a cordialidade da equipe de atendimento?",
+            "O atendimento foi rápido e eficiente?"
+        ];
+
+        let avaliation = [];
+        let currentQuestionIndex = 0;
+
+        function GetButtonValue(buttonId) {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                avaliation.push(button.value);
+                showNextQuestion();
+            } else {
+                console.log("Erro na captura de avaliação");
+            }
+        }
+
+        function showNextQuestion() {
+            const main = document.querySelector(".main");
+            main.classList.add("out");
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+
+                if (currentQuestionIndex < questions.length) {
+                    document.querySelector(".question-box-text p").innerText = questions[currentQuestionIndex];
+                } else {
+                    document.querySelector(".question-box-text p").innerText = "Obrigado por completar a avaliação!";
+                    document.querySelector(".Buttons").style.display = "none";
+                }
+
+                main.classList.remove("out");
+            }, 500);
+        }
+    </script>
+</head>
+<body>
+    <div class="walp"></div>
+    <div class="main">
+        <div class="transition">
+            <div class="question-box">
+                <div class="question-box-text">
+                    <p>
+                        Com base na sua experiência em nossa instituição, em uma escala de 0 (MUITO INSATISFEITO) a 10 (COMPLETAMENTE SATISFEITO),
+                        o quão provável você recomendaria nossos serviços a um amigo e/ou familiar?
+                    </p>
+                </div>
+                <div class="Buttons">
+                    <button id="bt1" onclick="GetButtonValue('bt1')" value="1">1</button>
+                    <button id="bt2" onclick="GetButtonValue('bt2')" value="2">2</button>
+                    <button id="bt3" onclick="GetButtonValue('bt3')" value="3">3</button>
+                    <button id="bt4" onclick="GetButtonValue('bt4')" value="4">4</button>
+                    <button id="bt5" onclick="GetButtonValue('bt5')" value="5">5</button>
+                    <button id="bt6" onclick="GetButtonValue('bt6')" value="6">6</button>
+                    <button id="bt7" onclick="GetButtonValue('bt7')" value="7">7</button>
+                    <button id="bt8" onclick="GetButtonValue('bt8')" value="8">8</button>
+                    <button id="bt9" onclick="GetButtonValue('bt9')" value="9">9</button>
+                    <button id="bt10" onclick="GetButtonValue('bt10')" value="10">10</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,219 @@
+.rotate-message {
+    display: none;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (orientation: portrait) {
+    .rotate-message {
+        display: flex;
+    }
+    .conteudo {
+        display: none;
+    }
+}
+
+.rotate {
+    margin-top: 60%;
+}
+
+.top-info {
+    font-size: 30px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    color: #010d27;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.Logo img{
+    width: 90px;
+    height: 90px;
+}
+
+.conteudo {
+    width: 100%;
+}
+
+.img-cell {
+    animation: spin-cell 2s cubic-bezier(0.7, 0.02, 0.18, 0.99) infinite alternate;
+}
+
+@keyframes spin-cell {
+    100% { transform: rotate(0deg); }
+    0% { transform: rotate(90deg); }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f9;
+}
+
+.walp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/hosp.jpg'); 
+    background-size: cover;
+    filter: blur(6px); 
+    z-index: -1;
+    animation: moveBackground 120s linear infinite alternate;
+}
+
+@keyframes moveBackground {
+    from {
+        background-position: 0% 0; 
+    }
+    to {
+        background-position: 100% 0; 
+    }
+}
+
+.main {
+    height: 930px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(0%);
+    height: 600px;
+}
+
+.transition.out {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.question-box {
+    background-color: rgb(255, 255, 255,0.5);
+    width: 1200px;
+    padding: 1%;
+    border-radius: 20px;
+}
+
+.question-box-text {
+    opacity: 1;
+    text-align: center;
+    font-size: 50px;
+    color: #010d27;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.Buttons {
+    justify-content: space-around; 
+    align-items: center;
+    margin-top: 7%;
+    margin-bottom: 15px;
+    left: 0;
+    right: 0; 
+}
+
+.Buttons button {
+    font-size: x-large;
+    width: 85px;
+    height: 105px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    user-select: none;
+    border: 0;
+}
+
+.Buttons button:active {
+    width: 75px;
+    height: 85px;
+    transition: 100ms;
+}
+
+.bt1 {background-color: #f4343aad;}
+.bt2 {background-color: #fa6364ad;}
+.bt3 {background-color: #f98a2cad;}
+.bt4 {background-color: #fdb571ad;}
+.bt5 {background-color: #feca42ad;}
+.bt6 {background-color: #f4b620ad;}
+.bt7 {background-color: #9acb3dad;}
+.bt8 {background-color: #87b337ad;}
+.bt9 {background-color: #4cbb4cad;}
+.bt10 {background-color: #379740ad;}
+
+.TextArea {
+    width: 100%;
+    text-align: center;
+}
+
+.TextArea textarea {
+    font-size: 35px;
+    width: 98%;
+    height: 200px;
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.TextSubmit {
+    color: #fff;
+    font-size: 40px;
+    width: 280px;
+    height: 70px;
+    margin: 4%;
+    border-radius: 8px;
+    background-color: #3368c6;
+}
+
+.carregar-box {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.carregar {
+    width: 100px;
+    height: 100px;
+    border: 10px solid #ccc;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    animation: spin 7s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.timer-display {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bolder;
+    color: #010d27;
+    margin-bottom: 20px;
+}
+footer {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    text-align: center;
+    font-size: 25px;
+}
