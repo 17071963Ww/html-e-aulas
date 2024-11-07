@@ -1,19 +1,11 @@
 <?php
-header('Content-Type: application/json');
-include 'bd.php';
+function TrueAdmin() { 
+    session_start();
+    if (!isset($_SESSION['usuario_id'])) {
+        header('Location: index.php');
+        exit();
+}}
 
-$sql = "SELECT * FROM sua_tabela"; 
-$result = pg_query($conn, $sql);
 
-$dados = array();
 
-if ($result) {
-    while ($row = pg_fetch_assoc($result)) {
-        $dados[] = $row;
-    }
-}
-
-echo json_encode($dados);
-
-pg_close($conn);
 ?>

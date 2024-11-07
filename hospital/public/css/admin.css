@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    display: flex;
+    background-color: #010d27;
+    position: relative;
+    border-right: 4px groove #3368c6;
+    width: 4%;
+    transition: width 0.2s ease-out;
+}
+
+.nav:hover {
+    width: 200px;
+}
+
+.nav:hover .right-nav {
+    display: block; 
+}
+
+.left-nav {
+    background-color: #010d27;
+    position: relative;
+    left: 0;
+    height: 100vh;
+    width: 120px;
+}
+
+.logo {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}
+
+.logo img{
+    width: 90px;
+}
+
+.separador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.separadorElemento {
+    background-color: #3368c6;
+    width: 20%;
+    height: 5px;
+    border-radius: 5px;
+}
+
+.Lista-nav {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #fff;
+    font-size: 24px
+}
+
+.Lista-nav ul {
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+    text-align: center;
+}
+
+.select-div {
+    border-radius: 5px;
+    background-color: #010d27;
+    padding: 2px;
+    margin-top: 30px;
+}
+
+.select-div.select {
+    background-color: #3368c6;
+}
+
+.Lista-nav ul li{
+    padding: 4px;
+}
+
+.Lista-nav ul li img{
+    width: 40px;
+}
+
+.right-nav {
+    display: none;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    right: 0;
+}
+
+.title-nav {
+    font-size: 35px;
+}
