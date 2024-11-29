@@ -1,4 +1,3 @@
-const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let questions = [];
 let avaliation = [];
 let index = 0;
@@ -7,74 +6,19 @@ let thanksMessage = "O Hospital Regional Alto Vale (HRAV) agradece sua resposta!
 
 // DOM
 document.addEventListener("DOMContentLoaded", () => {
-    function checkOrientation() {
-        if (window.innerHeight > window.innerWidth) {
-            document.querySelector('.rotate-message').style.display = 'flex';
-            document.querySelector('.conteudo').style.display = 'none';
-        } else {
-            document.querySelector('.rotate-message').style.display = 'none';
-            document.querySelector('.conteudo').style.display = 'block';
-        }
-    }
-
     loadQuestions();
     checkOrientation();
     Question();
     window.addEventListener("resize", checkOrientation);
 });
 
-// Funções
-function Config() {
-    const configForm = document.querySelector('.Config-form');
-    if (configForm.classList.contains('out')) {
-        configForm.classList.remove('out'); 
-    } else {
-        configForm.classList.add('out'); 
-    }
-}
-
-// Main authentication function that handles the fetch request and response processing
-function auth(user, password, redirectOnSuccess = 'index.php') {
-    fetch('/hospital/scr/auth.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ user: user, password: password })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            window.location.href = data.redirect || redirectOnSuccess;
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => console.error('Erro:', error));    
-}
-
-function loginConfig(event) {
-    event.preventDefault();
-
-    const user = document.getElementById('user').value;
-    const password = document.getElementById('password').value;
-
-    if (!user || !password) {
-        alert("Usuário e senha são obrigatórios.");
-        return;
-    }
-
-    auth(user, password);
-}
-
-
+// Função para carregar perguntas
 function loadQuestions() {
     fetch('/hospital/scr/perguntas.php')
-        .then(response => {
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             questions = data.map(q => ({
+                id: q.id_perguntas, // Adicionando o ID da pergunta
                 text: q.pergunta,
                 type: q.tipo
             }));
@@ -84,23 +28,28 @@ function loadQuestions() {
         });
 }
 
-// editar, funcao imcompleta /////////////
+// Função para enviar as respostas
+// Função para enviar as respostas
 function SendQuestions() {
-    fetch('/hospital/scr/respostas.php', {
+    fetch('/hospital/scr/perguntas.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         },
-        body: 'avaliation=' + encodeURIComponent(JSON.stringify(avaliation))
+        body: JSON.stringify({
+            respostas: avaliation, 
+            user_id: selectedUser 
+        })
     })
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
         console.log(data); 
     })
     .catch(error => console.error(error));
 }
-////////////////////////////////////////
 
+
+// Função que exibe uma pergunta de cada vez
 function Question() {   
     const transition = document.querySelector(".transition");
     transition.classList.add("out");
@@ -126,7 +75,7 @@ function Question() {
                     button.innerText = option;
                     button.className = 'bt' + i;
                     button.value = option;
-                    button.onclick = () => GetButtonValue(option);
+                    button.onclick = () => GetButtonValue(Question.id, option); // Enviando o id da pergunta junto
                     buttonsContainer.appendChild(button);
                 });
             } else if (Question.type === "text") {
@@ -134,36 +83,32 @@ function Question() {
                 textAreaContainer.style.display = "block";
             }            
         } else {
-            // layout 
+            // Finaliza as perguntas
             questionTextElement.innerText = thanksMessage;
             buttonsContainer.style.display = "none";
             textAreaContainer.style.display = "none";
-        
+
+            // Criação de elementos de carregamento
             const carregarbox = document.createElement("div");
             carregarbox.className = 'carregar-box'; 
-        
             const carregar = document.createElement("div");
             carregar.className = 'carregar'; 
             carregarbox.appendChild(carregar);
-            
             document.querySelector('.question-box').appendChild(carregarbox);
-        
+
             const timerDisplay = document.createElement("div");
             timerDisplay.className = 'timer-display';
             document.querySelector('.question-box').appendChild(timerDisplay);
-            
             timerDisplay.innerText = timeLeft;
-            
-            // lógica
 
-
+            // Lógica do timer
             const countdown = setInterval(() => {
                 timeLeft -= 1;
                 timerDisplay.innerText = timeLeft;
-                
+
                 if (timeLeft <= 0) {
                     clearInterval(countdown);
-                    location.reload();
+                    SendQuestions(); // Envia as respostas quando o timer chega a zero
                     console.log('acaba timer')
                 }
             }, 1000); 
@@ -173,14 +118,17 @@ function Question() {
     }, 1000);
 }
 
-function GetButtonValue(value) {
-    avaliation.push(value); 
+// Função chamada ao clicar em um botão de opção
+function GetButtonValue(questionId, value) {
+    avaliation.push({ id: questionId, answer: value }); // Armazena a resposta com o ID da pergunta
     Question();
 }
 
+// Função chamada ao enviar texto
 function submitText() {
     const textArea = document.querySelector(".TextArea textarea");
-    avaliation.push(textArea.value); 
+    const textValue = textArea.value;
+    avaliation.push({ id: questions[index].id, answer: textValue }); // Associa a resposta com a pergunta
     textArea.value = ""; 
     Question();
 }

@@ -44,4 +44,6 @@ if ($method === 'DELETE') {
 
     echo json_encode(['status' => $result ? 'Dispositivo excluído com sucesso' : 'Erro ao excluir dispositivo']);
 }
+
+
 ?>
