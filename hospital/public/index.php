@@ -9,6 +9,10 @@
     <script src='js/Main.js' defer></script>
 </head>
 <body>
+    <?php
+        require_once '../scr/funcoes.php';
+        DestroiAdmin();
+    ?>
     <header>
         <!-- Container para Corrigir a orientação caso vire na orientação paisagem-->
         <div class="rotate">
@@ -32,8 +36,7 @@
                 <figure class="config">
                     <img src="css/img/config.png" alt="Configurações" onclick="Config()">
                 </figure>
-            </div>
-        </div>    
+            </div>  
     </header>
 
     <main>

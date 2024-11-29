@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    // Consulta para buscar o usuário no banco de dados
     $sql = "SELECT * FROM usuarios WHERE usuario = $1";
     $result = pg_query_params($conn, $sql, array($user));
 
@@ -29,10 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (pg_num_rows($result) > 0) {
         $usuario = pg_fetch_assoc($result);
 
+        // Verifica se a senha está correta
         if (password_verify($senha, $usuario['senha'])) {
             session_start();
-            $_SESSION['usuario_id'] = $usuario['id_usuarios']; 
+            
+            // Armazenando o ID e o nome do usuário na sessão
+            $_SESSION['usuario_id'] = $usuario['id_usuarios'];
+            $_SESSION['usuario_nome'] = $usuario['usuario']; // Armazenando o nome do usuário
 
+            // Retorna a resposta de sucesso e a página para redirecionamento
             echo json_encode(['success' => true, 'redirect' => 'admin-home.php']);
             exit();
         } else {
